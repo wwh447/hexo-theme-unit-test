@@ -1,0 +1,16 @@
+<div class="navigation">
+  <header>
+    <a href="<%- url_for() %>" class="mylogo"><%= config.title %></a>
+  </header>
+  <nav>
+    <% for (var i in theme.menu){ %>
+      <a href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
+    <% } %>
+  </nav>
+  <footer>
+    <% if (theme.subtitle){ %>
+    <h2><%= theme.subtitle %></h2>
+    <% } %>
+  </footer>
+</div>
+<!-- /.navigation -->
