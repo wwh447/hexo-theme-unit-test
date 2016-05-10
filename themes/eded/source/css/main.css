@@ -1,6 +1,95 @@
-html{
+html {
+  font-size: 14px;
   height: 100%;
 }
-body{
+body {
   min-height: 100%;
+  margin: 0;
+  padding: 0;
+  color: #444;
+  font-family: "Helvetica Neue", "Hiragino Sans GB", Tahoma, \5B8B\4F53, Arial;
+  padding: 2rem 2rem 2rem 14rem;
+  position: relative;
+}
+a{ color: hsl(200, 100%, 40%); text-decoration: none; }
+p{ margin: 0; padding: 0; }
+ul, ol, li{ margin: 0; padding: 0; list-style:inherit; }
+h1, h2, h3, h4, h5, h6{
+  font-size: 100%;
+  font-weight: normal;
+  margin: 0;
+}
+img{ border: none; }
+.navigation{
+  background-color: hsl(200, 100%, 80%);
+  box-sizing: border-box;
+  color: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 12rem;
+}
+.navigation > header{
+  text-align: center;
+  font-size: 1.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 1rem 0;
+}
+.navigation > header a{
+  color: #fff;
+}
+.navigation > nav{
+  margin: 1rem 0;
+}
+.navigation > nav a{
+  background-color: hsl(200, 100%, 85%);
+  box-sizing: border-box;
+  color: hsl(200, 100%, 80%);
+  display: block;
+  padding: .6rem .6rem .6rem 0;
+  margin: .8rem 0 .8rem .8rem;
+  font-size: 1.2rem;
+  text-align: right;
+  -webkit-transition:background-color .4s, margin-left .4s;
+          transition:background-color .4s, margin-left .4s;
+}
+.navigation > nav a:hover{
+  background-color: hsl(200, 100%, 100%);
+}
+.navigation > nav a.now{}
+.navigation > footer{
+  position: absolute;
+  bottom: .8rem;
+  left: 0;
+  padding: 0 .8rem;
+  line-height: 1.8;
+}
+.navigation > footer h2{
+  font-size:.8rem;
+}
+.article-gallery-img{
+  display: block;
+}
+.article-gallery-img img{
+  max-width: 100%;
+}
+.article-entry img{
+  max-width: 100%;
+}
+.article-inner{
+  margin: 2rem 0;
+}
+.article-inner p{
+  margin: 1rem 0;
+}
+body > footer{
+  color: #999;
+  text-align: center;
+  margin-top: 2rem;
+}
+body > footer a{
+  color: #666;
 }
