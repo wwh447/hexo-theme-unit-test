@@ -1,0 +1,18 @@
+<% if (config.duoshuo_shortname){ %>
+<script>
+  var duoshuoQuery = {short_name:'<%= config.duoshuo_shortname %>'};
+</script>
+<% } %>
+
+<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<% if (config.duoshuo_shortname){ %>
+
+<script src="//static.duoshuo.com/embed.js"></script>
+<% } %>
+
+<% if (theme.fancybox){ %>
+  <%- css('fancybox/jquery.fancybox') %>
+  <%- js('fancybox/jquery.fancybox.pack') %>
+<% } %>
+
+<%- js('js/script') %>

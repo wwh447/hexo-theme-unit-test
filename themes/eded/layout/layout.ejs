@@ -1,7 +1,11 @@
 <%- partial('_partial/head') %>
 <body>
-  <%- partial('_partial/navigation', null, {cache: !config.relative_link}) %>
+  <%- partial('_svg/symbol') %>
   <%- body %>
-  <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+  <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
+  
+  <script src="js/jquery.js" charset="utf-8"></script>
+  <script src="js/main.js" charset="utf-8"></script>
+
 </body>
 </html>

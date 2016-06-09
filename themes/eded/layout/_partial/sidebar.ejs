@@ -1,5 +1,12 @@
-<aside id="sidebar"<% if (theme.sidebar === 'bottom'){ %> class="outer"<% } %>>
-  <% theme.widgets.forEach(function(widget){ %>
-    <%- partial('_widget/' + widget) %>
-  <% }) %>
-</aside>
+<div class="sidebar">
+  <%- partial('_partial/header') %>
+  <nav>
+    <% for (var i in theme.menu){ %>
+      <a href="<%- url_for(theme.menu[i]) %>" <%= is_current(theme.menu[i]) ? 'class=now' : '' %> >
+        <svg class="icon"><use xlink:href="#icon-<%= theme.menu_icon[i] %>"></use></svg><em><%= __(i) %></em>
+      </a>
+    <% } %>
+  </nav>
+  <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+</div>
+<!-- /.navigation -->

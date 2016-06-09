@@ -1,4 +1,8 @@
-<footer id="footer">
-  &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %>
-  <%= __('powered_by') %> <a href="http://hexo.io/" target="_blank">Hexo</a>
+<footer>
+  <p>Proudly powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+  <p>Designed by <a href=""><%= config.author %></a></p>
+  <p>Copyright&copy; <%= date(new Date(), 'YYYY') %> <a href=""><%= config.title %></a></p>
+  <% if (config.register){ %>
+  <p><%= config.register %></p>
+  <% } %>
 </footer>

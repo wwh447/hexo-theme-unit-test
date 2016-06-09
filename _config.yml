@@ -7,8 +7,10 @@ title: ED少年
 subtitle: 记录从学习前端开发到放弃的整个康复过程
 description: 这是Eded的个人博客，他的精神在这里驻扎生根，未成年人请在监护人陪同下游览。
 author: Eded Wang
-language:
+language: zh-CN
 timezone:
+
+register: '闽ICP备16010082号'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -41,7 +43,7 @@ highlight:
   enable: true
   line_number: true
   auto_detect: true
-  tab_replace:
+  tab_replace: 
 
 # Category & Tag
 default_category: uncategorized
@@ -63,6 +65,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
+#theme: landscape
 theme: eded
 
 # Deployment

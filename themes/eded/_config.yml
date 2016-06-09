@@ -1,7 +1,17 @@
 # Header
+# navbar_brand: false
 menu:
-  Home: /
-  Archives: /archives
+  home: index.html
+  code: code/
+  life: life/
+  author: author/
+  archives: archives/
+menu_icon:
+  home: castle
+  code: bug
+  life: bone
+  author: danger
+  archives: candy
 rss: /atom.xml
 
 # Content

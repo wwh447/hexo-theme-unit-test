@@ -1,0 +1,257 @@
+$linkColor: hsl(200, 100%, 40%);
+$navBackgroundColor: hsl(200, 100%, 80%);
+$navLinkColor: hsl(200, 100%, 20%);
+
+@import "highlight-googlecode.css";
+
+html {
+  font-size: 14px;
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  color: #444;
+  font-family: Tahoma, \5B8B\4F53, Arial;
+  -webkit-font-smoothing:antialiased;
+  padding: 2rem 2rem 2rem 14rem;
+  position: relative;
+  > svg{ display: none; }
+}
+a{ color: $linkColor; text-decoration: none; }
+p, dl, dt, dd, pre, blockquote{ margin: 0; padding: 0; }
+ul, ol, li{ margin: 0; padding: 0; list-style:none; }
+h1, h2, h3, h4, h5, h6{
+  font-size: 100%;
+  font-weight: normal;
+  margin: 0;
+}
+em{ font-style: normal; }
+img{ border: none; }
+
+svg.icon{
+  display: inline-block;
+  vertical-align: middle;
+  height: 1em;
+  width: 1em;
+}
+
+figure.highlight{
+  background-color: #f8f8f8;
+  box-sizing: border-box;
+  th, td{
+    padding: 0;
+  }
+  .gutter{
+    color: #ccc;
+    text-align: right;
+  }
+  .code{
+    padding-left: .5rem;
+  }
+}
+
+.sidebar{
+  background-color: hsl(200, 100%, 80%);
+  box-sizing: border-box;
+  color: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 12rem;
+
+  > header{
+    margin: 1rem .8rem;
+    .mylogo{
+      color: #fff;
+      display: block;
+      font-size: 1.8rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: .5rem;
+      img{
+        max-width: 100%;
+        vertical-align: top;
+      }
+    }
+    h2{
+      font-size: .8rem;
+    }
+  }
+  > nav{
+    margin: 1rem 0;
+    a{
+      background-color: hsl(200, 100%, 85%);
+      box-sizing: border-box;
+      color: hsl(200, 100%, 80%);
+      display: block;
+      padding: .6rem 1rem .6rem 0;
+      margin: .8rem 0 .8rem .8rem;
+      font-size: 1.2rem;
+      text-align: right;
+      transition:background-color .4s, margin-left .4s;
+      em{
+        display: inline-block;
+        vertical-align: middle;
+      }
+      svg{
+        fill: hsl(200, 100%, 80%);
+        margin-right: .2rem;
+      }
+    }
+    a:hover,
+    a.now{
+      background-color: hsl(200, 100%, 100%);
+    }
+    a.now{
+      color: $linkColor;
+      cursor: default;
+      svg{ fill: $linkColor; }
+    }
+  }
+  > footer{
+    color: rgba(255,255,255,.45);
+    position: absolute;
+    bottom: .8rem;
+
+    left: 0;
+    padding: 0 .8rem;
+    line-height: 1.8;
+    p{
+      font-size:.8rem;
+    }
+    a{
+      color: #fff;
+    }
+  }
+}
+
+.article-gallery-img{
+  display: block;
+  img{
+    max-width: 100%;
+  }
+}
+.article-entry img{
+  max-width: 100%;
+}
+.article-inner{
+  margin: 2rem 0;
+  p{
+    margin: 1rem 0;;
+  }
+}
+
+body > footer{
+  color: #999;
+  text-align: center;
+  margin-top: 2rem;
+  a{ color: #666; }
+}
+
+.articles{
+  .article{
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    a{
+      color: #333;
+    }
+    > footer{
+      margin-top: 1rem;
+    }
+  }
+}
+
+.article{
+  header{
+    margin-bottom: 1rem;
+  }
+  h1{
+    font-size: 2rem;
+    a{
+      background-color: #fff;
+      border-left: 3px solid #ccc;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      padding: .2rem 0;
+      text-overflow: ellipsis;
+      text-indent: .5em;
+      transition: border-left-color .4s, background-color .4s;
+      &:hover{
+        border-left-color: $linkColor;
+        background-color: hsl(200, 100%, 98%);
+      }
+    }
+  }
+  h2{
+    font-size: 1.6rem;
+  }
+  h3{
+    font-size: 1.2rem;
+  }
+  h4, h5, h6{
+    font-size: 1rem;
+  }
+  .body{
+    margin-top: 1rem;
+    h1, h2, h3, h4, h5, h6, p, blockquote, figure{
+      margin: .5rem 0;
+    }
+    img{
+      vertical-align: top;
+      max-width: 100%;
+    }
+    > ol{
+      padding-left: 1rem;
+      > li { list-style: decimal inside; }
+    }
+    > ul{
+      padding-left: 1rem;
+    }
+    > table{
+      border-collapse: collapse;
+      th, td{
+        border: 1px solid #ddd;
+        padding: .4rem .6rem;
+      }
+      td{
+        font-size: .9rem;
+      }
+    }
+  }
+  .meta{
+    margin: 1rem 0;
+    .date, .category{
+      color: #999;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: .4rem;
+    }
+    .category{
+      white-space: nowrap;
+      a, i{
+        display: inline-block;
+        vertical-align: middle;
+      }
+      a{
+        color: #999;
+      }
+      i{
+        color: #ccc;
+        margin: 0 .2rem;
+      }
+    }
+  }
+  .more-link{
+    transition: color .4s;
+    &:hover{ color: $linkColor; }
+  }
+  .footer{
+    margin-top: 1rem;
+  }
+}

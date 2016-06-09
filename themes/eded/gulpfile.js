@@ -2,10 +2,9 @@ var gulp = require('gulp');
 var postcss = require('gulp-postcss');
 var rename = require('gulp-rename');
 var cssmin = require('gulp-minify-css');
-//var connect = require('gulp-connect');
 
 gulp.task('css', function() {
-	return gulp.src('source/src/*.css')
+	return gulp.src('source/src/*.scss')
 		.pipe(postcss([
 			require('postcss-conditionals')(),
 			require('postcss-simple-vars')(),  //https://www.npmjs.com/package/postcss-simple-vars
@@ -20,6 +19,9 @@ gulp.task('css', function() {
 			}),
 			require('postcss-extend')()
 		]))
+		.pipe(rename(function(path) {
+			path.extname = '.css';
+		}))
 		.pipe(gulp.dest('source/css'))
 });
 
@@ -33,7 +35,7 @@ gulp.task('min', function() {
 });
 
 gulp.task('watch', function() {
-	gulp.watch(['source/src/*.css'], ['css']);
+	gulp.watch(['source/src/*.scss'], ['css']);
 });
 
 gulp.task('default', ['watch', 'css']);
