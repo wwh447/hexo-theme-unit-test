@@ -3,10 +3,14 @@ $navBackgroundColor: hsl(200, 100%, 80%);
 $navLinkColor: hsl(200, 100%, 20%);
 
 @import "highlight-googlecode.css";
+@import "swiper.css";
 
 html {
   font-size: 14px;
   height: 100%;
+  @media (max-width: 414px){
+    font-size: 10px;
+  }
 }
 body {
   box-sizing: border-box;
@@ -20,7 +24,7 @@ body {
   position: relative;
   > svg{ display: none; }
   @media (max-width: 414px){
-    padding: 140px 1rem 0;
+    padding: 120px 1rem 1rem;
   }
 }
 a{ color: $linkColor; text-decoration: none; }
@@ -69,6 +73,12 @@ figure.highlight{
   content: "";
   clear: both;
   display: table;
+}
+
+.gallery{
+  background-color: #f1f1f1;
+  position: relative;
+  overflow: hidden;
 }
 
 .sidebar{
@@ -161,7 +171,6 @@ figure.highlight{
         float: left;
         margin: 0 0 0 .4rem;
         padding: .4rem .6rem;
-        font-size: 1rem;
       }
     }
     > footer{
@@ -419,6 +428,42 @@ body > footer{
       background-color: #fff;
       border-color: hsl(200, 100%, 40%);
       color: hsl(200, 100%, 40%);
+    }
+  }
+}
+
+.archives{
+  .year{
+    font-size: 1.6rem;
+    a{
+      color: #333;
+    }
+  }
+  > ul{
+    border-left: 1px dashed #ddd;
+    margin-left: 1rem;
+    padding: .5rem .5rem .5rem 1rem;
+    li{
+      margin-bottom: 1rem;
+      position: relative;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+    h1{
+      margin-left: 80px;
+    }
+    .date{
+      color: #333;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .title{
+      color: #333;
+      display: inline-block;
+      vertical-align: top;
+      font-size: 1.2rem;
     }
   }
 }

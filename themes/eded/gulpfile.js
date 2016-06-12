@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var postcss = require('gulp-postcss');
 var rename = require('gulp-rename');
 var cssmin = require('gulp-minify-css');
+var connect = require('gulp-connect');
 
 gulp.task('css', function() {
 	return gulp.src('source/src/*.scss')
@@ -34,8 +35,16 @@ gulp.task('min', function() {
 		.pipe(gulp.dest('source/dist'))
 });
 
+gulp.task('connect', function() {
+  connect.server({
+		root: '../../public',
+		port: 4000,
+		livereload: true
+	});
+});
+
 gulp.task('watch', function() {
 	gulp.watch(['source/src/*.scss'], ['css']);
 });
 
-gulp.task('default', ['watch', 'css']);
+gulp.task('default', ['watch', 'css', 'connect']);

@@ -2,10 +2,9 @@
 # navbar_brand: false
 menu:
   home: index.html
-  code: code/
-  life: life/
+  code: categories/code/
+  life: categories/life/
   author: author/
-  archives: archives/
 menu_icon:
   home: castle
   code: bug

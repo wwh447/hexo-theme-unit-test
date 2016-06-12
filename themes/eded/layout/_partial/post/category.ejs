@@ -4,7 +4,10 @@
       show_count: false,
       class: '',
       style: 'none',
-      separator: ''
+      separator: '',
+      transform: function(t) {
+        return __(t);
+      }
     }) %>
   </div>
 <% } %>
