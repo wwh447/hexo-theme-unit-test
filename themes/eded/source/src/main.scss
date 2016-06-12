@@ -9,6 +9,7 @@ html {
   height: 100%;
 }
 body {
+  box-sizing: border-box;
   min-height: 100%;
   margin: 0;
   padding: 0;
@@ -18,6 +19,9 @@ body {
   padding: 2rem 2rem 2rem 14rem;
   position: relative;
   > svg{ display: none; }
+  @media (max-width: 414px){
+    padding: 140px 1rem 0;
+  }
 }
 a{ color: $linkColor; text-decoration: none; }
 p, dl, dt, dd, pre, blockquote{ margin: 0; padding: 0; }
@@ -29,6 +33,15 @@ h1, h2, h3, h4, h5, h6{
 }
 em{ font-style: normal; }
 img{ border: none; }
+code{
+  background-color: #eee;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 .4rem;
+}
+blockquote{
+  display: block;
+}
 
 svg.icon{
   display: inline-block;
@@ -50,6 +63,12 @@ figure.highlight{
   .code{
     padding-left: .5rem;
   }
+}
+
+@define-placeholder clearfix::after{
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .sidebar{
@@ -127,21 +146,44 @@ figure.highlight{
       color: #fff;
     }
   }
+
+  @media (max-width: 414px){
+    height: auto;
+    width: 100%;
+    > nav{
+      margin-bottom: 0;
+      &:after{
+        content: "";
+        clear: both;
+        display: table;
+      }
+      a{
+        float: left;
+        margin: 0 0 0 .4rem;
+        padding: .4rem .6rem;
+        font-size: 1rem;
+      }
+    }
+    > footer{
+      display: none;
+    }
+  }
 }
 
-.article-gallery-img{
-  display: block;
+.gallery{
+  a{
+    display: block;
+  }
   img{
+    display: inline-block;
+    vertical-align: top;
     max-width: 100%;
   }
 }
-.article-entry img{
-  max-width: 100%;
-}
-.article-inner{
-  margin: 2rem 0;
-  p{
-    margin: 1rem 0;;
+
+.video-container{
+  > iframe{
+    max-width: 100%;
   }
 }
 
@@ -157,8 +199,31 @@ body > footer{
     border-bottom: 1px dashed #eee;
     padding-bottom: 2rem;
     margin-bottom: 2rem;
+    &:last-child{
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
     a{
       color: #333;
+    }
+    > header h1{
+      font-size: 2rem;
+      > a{
+        background-color: hsl(200, 100%, 98%);
+        border-left: 3px solid #ccc;
+        border-left-color: $linkColor;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: .2rem 0;
+        text-overflow: ellipsis;
+        text-indent: .5em;
+        transition: background-color .4s;
+        &:hover{
+          background-color: hsl(200, 100%, 92%);
+        }
+      }
     }
     > footer{
       margin-top: 1rem;
@@ -168,39 +233,39 @@ body > footer{
 
 .article{
   header{
-    margin-bottom: 1rem;
-  }
-  h1{
-    font-size: 2rem;
-    a{
-      background-color: #fff;
-      border-left: 3px solid #ccc;
-      display: block;
-      white-space: nowrap;
-      overflow: hidden;
-      padding: .2rem 0;
-      text-overflow: ellipsis;
-      text-indent: .5em;
-      transition: border-left-color .4s, background-color .4s;
-      &:hover{
-        border-left-color: $linkColor;
-        background-color: hsl(200, 100%, 98%);
-      }
+    margin-bottom: .5rem;
+    h1{
+      font-size: 2rem;
     }
   }
-  h2{
-    font-size: 1.6rem;
-  }
-  h3{
-    font-size: 1.2rem;
-  }
-  h4, h5, h6{
-    font-size: 1rem;
-  }
   .body{
-    margin-top: 1rem;
+    margin-top: 2rem;
     h1, h2, h3, h4, h5, h6, p, blockquote, figure{
-      margin: .5rem 0;
+      margin: 1rem 0;
+    }
+    h1, h2, h3, h4, h5, h6{
+      margin-top: 2em;
+    }
+    h1{
+      font-size: 2rem;
+    }
+    h2{
+      font-size: 1.8rem;
+    }
+    h3{
+      background-color: hsl(200, 100%, 98%);
+      border-bottom: 1px solid hsl(200, 100%, 40%);
+      font-size: 1.6rem;
+      padding: .6rem .6rem;
+    }
+    h4{
+      font-size: 1.4rem;
+    }
+    h5{
+      font-size: 1.2rem;
+    }
+    h6{
+      font-size: 1rem;
     }
     img{
       vertical-align: top;
@@ -212,6 +277,7 @@ body > footer{
     }
     > ul{
       padding-left: 1rem;
+      > li { list-style: disc inside; }
     }
     > table{
       border-collapse: collapse;
@@ -223,27 +289,105 @@ body > footer{
         font-size: .9rem;
       }
     }
+    hr{
+      border: dashed #ccc;
+      border-width: 1px 0 0;
+      margin: 1rem 0;
+    }
+    dd{
+      margin-left: 1rem;
+    }
+    del{
+      color: #999;
+    }
+    blockquote{
+      font-size: .85rem;
+    }
   }
   .meta{
-    margin: 1rem 0;
-    .date, .category{
-      color: #999;
+    margin: 0 0 2rem;
+    .date, .category, .tag-list{
+      color: #666;
       display: inline-block;
       vertical-align: middle;
       margin-right: .4rem;
-    }
-    .category{
       white-space: nowrap;
-      a, i{
+    }
+    .date{
+      svg, time{
         display: inline-block;
         vertical-align: middle;
       }
+    }
+    .category{
       a{
-        color: #999;
+        background-color: #444;
+        border: 1px solid #444;
+        color: #fff;
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        font-size: .85rem;
+        line-height: 1rem;
+        padding: 0 1rem 0 1rem;
+        &:before{
+          background-color: #444;
+          border: solid #fff;
+          border-width: 1px 1px 0 0;
+          content: "";
+          position: absolute;
+          right: -.5rem;
+          top: .2rem;
+          height: .6rem;
+          width: .6rem;
+          transform: rotate(45deg);
+          z-index: 1;
+        }
+        &:last-child{
+          background-color: #fff;
+          color: #444;
+          &:before{
+            display: none;
+          }
+        }
       }
-      i{
-        color: #ccc;
-        margin: 0 .2rem;
+    }
+    .tag-list{
+      padding-right: .4rem;
+      li{
+        display: inline-block;
+        margin-right: .8rem;
+        &:last-child{ margin-right: 0; }
+      }
+      a{
+        background-color: #444;
+        color: #fff;
+        display: inline-block;
+        padding: 0 .6rem;
+        position: relative;
+        font-size: .85rem;
+        line-height: 1rem;
+        white-space: nowrap;
+        &:before{
+          content: "";
+          position: absolute;
+          right: -.5rem;
+          top: 0;
+          border: .5rem solid rgba(255,255,255,0);
+          border-right-width: 0;
+          border-left-color: #444;
+        }
+        &:after{
+          background-color: rgba(255,255,255,.85);
+          content: "";
+          border-radius: 50%;
+          height: .25rem;
+          width: .25rem;
+          position: absolute;
+          right: -.2rem;
+          top: 50%;
+          margin-top: -.16rem;
+        }
       }
     }
   }
@@ -252,6 +396,29 @@ body > footer{
     &:hover{ color: $linkColor; }
   }
   .footer{
-    margin-top: 1rem;
+    margin-top: 2rem;
+  }
+}
+
+.paging{
+  margin-top: 2rem;
+  text-align: center;
+  span, a{
+    border: 1px solid #fff;
+    display: inline-block;
+    vertical-align: middle;
+    padding: .6rem 1rem;
+    margin: 0 .2rem;
+  }
+  a{
+    background-color: #eee;
+    color: #333;
+    text-decoration: none;
+    transition: background-color .4s, border-color .4s, color .4s;
+    &:hover{
+      background-color: #fff;
+      border-color: hsl(200, 100%, 40%);
+      color: hsl(200, 100%, 40%);
+    }
   }
 }

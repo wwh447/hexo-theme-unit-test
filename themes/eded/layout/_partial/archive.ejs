@@ -26,11 +26,12 @@
     </div></section>
   <% } %>
 <% } %>
+
 <% if (page.total > 1){ %>
   <nav class="paging">
     <%- paginator({
-      prev_text: "&laquo; __('prev')",
-      next_text: "__('next') &raquo;"
+      prev_text: "&laquo;",
+      next_text: "&raquo;"
     }) %>
   </nav>
 <% } %>

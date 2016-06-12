@@ -6,9 +6,9 @@
 
   <% } %>
   <div class="meta">
+    <%- partial('post/date', {class_name: 'date', date_format: null}) %>
     <%- partial('post/category') %>
     <%- partial('post/tag') %>
-    <%- partial('post/date', {class_name: 'date', date_format: null}) %>
   </div>
 
   <%- partial('post/gallery') %>
